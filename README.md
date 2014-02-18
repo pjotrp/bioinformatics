@@ -6,7 +6,7 @@ software and pipelines for current day biological and biomedical research.
 Large scale data acquisition in research has led to fundamental challenges in
 (1) scaling of calculations, (2) full data integration and (3) data interaction
 and visualisation. We think that, because of researchers reaching out to
-turn-key solutions, they are losing sight of the importantance of building
+turn-key solutions, they are losing sight of the importance of building
 software on the shoulders of giants and providing solutions in a modular,
 flexible and open way.
 
@@ -16,7 +16,7 @@ This manifesto builds on the Unix computer tradition of providing small tools
 that can be used in a modular and pluggable way to create efficient
 computational solutions where individual parts can be easily replaced.  The
 manifesto also counters current trends in software licensing which are not
-truely free and open source (FOSS). We think such a manifesto is necessary,
+truly free and open source (FOSS). We think such a manifesto is necessary,
 even if history shows that software create with true FOSS licenses will
 ultimately prevail over less open licenses, including those licenses for
 academic use only.
@@ -26,14 +26,14 @@ statisticians and system administrators who work on biological and biomedical
 data
 
 'Small tools for bioinformatics' is concerned about the reinvention of the
-wheel across research projects and, for example, the lack of reproducibility of
+wheel across research projects and, for example, the lack of reproducible of
 current scripted solutions in sequencing pipelines.
 
 'Small tools for bioinformatics' is about small collaborating tools and
 software solutions (from here on 'tools') in the Unix tradition.
 
 'Small tools for bioinformatics' creates free and open source software, shares
-software solutions, and encourages transparency and reproducibility of results.
+software solutions, and encourages transparency and reproducible of results.
 
 'Small tools for bioinformatics' allows the building of modular solutions where
 individual tools can easily be understood, tested and replaced.
@@ -75,7 +75,7 @@ The following are recommendations
 
 * Use travis or similar for automatic testing
 
-* Provide a package definition for the GNU packackage system (GUIX)
+* Provide a package definition for the GNU package system (GUIX)
 
 * All tools that match the criteria of the manifesto will be part of
     standard bioinformatics pipelines across the world
@@ -92,21 +92,21 @@ efforts are not really matching the requirements of big data. Not so long ago,
 programmers got by writing specialised (small) tools in Perl, Python, R or C.
 Today, bioinformatics software engineering has to deal multi-core programming,
 with IO bottlenecks, RAM constraints, and demanding users. The overall
-challenge has become too large a job for the isolated Ph.D. student trying to
+challenge has become too large a job for the isolated PhD.D. student trying to
 write the next great all-inclusive software solution. We are increasingly
 depending on collaborative efforts involving researchers with a background in
 biology, statistics, software development and system administration. This is
-where the manifesto kicks in - by encouraging these Ph.D. students to come out
+where the manifesto kicks in - by encouraging these Phi.D. students to come out
 of isolation and write small tools that can be bolted together with other
 tools.
 
-Also, there is a lack of good workflow management solutions in bioinformatics
+Also, there is a lack of good work flow management solutions in bioinformatics
 pipelines, a gap that sits somewhere between generic cluster management
-software, such as Sun Grid Engine, on the one end, and user oriented workflow
+software, such as Sun Grid Engine, on the one end, and user oriented work flow
 solutions, such as Galaxy, on the other.  This gap has led to sequencing
 centres around the world creating their own scripted and often fragile
 pipelines, thereby reinventing the wheel and ending with a semi-optimal and
-hard to mantain workflow solution. This  manifesto calls for a collaborative
+hard to maintain work flow solution. This  manifesto calls for a collaborative
 effort in changing the way we write software for pipelines and making
 such bioinformatics software pipelines simpler, flexible and more manageable.
 
