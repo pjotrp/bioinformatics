@@ -1,6 +1,6 @@
-# THE SMALL TOOLS MANIFESTO FOR BIOINFORMATICS
+## THE SMALL TOOLS MANIFESTO FOR BIOINFORMATICS
 
-This manifesto describes motives, rules and recommendations for designing
+This **MANIFESTO** describes motives, rules and recommendations for designing
 software and pipelines for current day biological and biomedical research.
 
 Large scale data acquisition in research has led to fundamental challenges in
@@ -21,29 +21,29 @@ even if history shows that software create with true FOSS licenses will
 ultimately prevail over less open licenses, including those licenses for
 academic use only.
 
-'Small tools for bioinformatics' consists of researchers, software developers,
+*Small tools for bioinformatics* consists of researchers, software developers,
 statisticians and system administrators who work on biological and biomedical
 data
 
-'Small tools for bioinformatics' is concerned about the reinvention of the
+*Small tools for bioinformatics* is concerned about the reinvention of the
 wheel across research projects and, for example, the lack of reproducible 
 scripted solutions in sequencing pipelines.
 
-'Small tools for bioinformatics' is about small collaborating tools and
+*Small tools for bioinformatics* is about small collaborating tools and
 software solutions (from here on 'tools') in the Unix tradition.
 
-'Small tools for bioinformatics' creates free and open source software, shares
+*Small tools for bioinformatics* creates free and open source software, shares
 software solutions, and encourages transparency and reproducibility of results.
 
-'Small tools for bioinformatics' allows the building of modular solutions where
+*Small tools for bioinformatics* allows the building of modular solutions where
 individual tools can easily be understood, tested and replaced.
 
-'Small tools for bioinformatics' is a rescue plan and forward looking central
+*Small tools for bioinformatics* is a rescue plan and forward looking central
 effort to bring together solutions suitable for big data analysis and create
 ways of having these tools interact with each other.
 
-The following simple rules apply to anyone signing up to 'Small tools for
-bioinformatics'
+The following simple rules apply to anyone signing up to *Small tools for
+bioinformatics*
 
 * Every single tool should do the smallest possible task really well
 
