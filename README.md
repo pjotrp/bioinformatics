@@ -26,14 +26,14 @@ statisticians and system administrators who work on biological and biomedical
 data
 
 'Small tools for bioinformatics' is concerned about the reinvention of the
-wheel across research projects and, for example, the lack of reproducible of
-current scripted solutions in sequencing pipelines.
+wheel across research projects and, for example, the lack of reproducible 
+scripted solutions in sequencing pipelines.
 
 'Small tools for bioinformatics' is about small collaborating tools and
 software solutions (from here on 'tools') in the Unix tradition.
 
 'Small tools for bioinformatics' creates free and open source software, shares
-software solutions, and encourages transparency and reproducible of results.
+software solutions, and encourages transparency and reproducibility of results.
 
 'Small tools for bioinformatics' allows the building of modular solutions where
 individual tools can easily be understood, tested and replaced.
