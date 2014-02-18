@@ -80,9 +80,11 @@ The following are recommendations
 * All tools that match the criteria of the manifesto will be part of
     standard bioinformatics pipelines across the world
 
-Above manifesto is signed by 
+This **MANIFESTO** *Small tools for bioinformatics* is signed by 
 
 [Pjotr Prins](http://thebird.nl/)
+[Raoul Bonnal](https://github.com/helios)
+[Francesco Strozzi](https://github.com/fstrozzi)
 
 NOTES
 
