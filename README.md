@@ -82,10 +82,10 @@ The following are recommendations
 
 This **MANIFESTO** *Small tools for bioinformatics* is signed by 
 
-[Pjotr Prins](http://thebird.nl/)
-[Raoul Bonnal](https://github.com/helios)
-[Francesco Strozzi](https://github.com/fstrozzi)
-[Artem Tarasov](https://github.com/lomereiter)
+1. [Pjotr Prins](http://thebird.nl/)
+2. [Raoul Bonnal](https://github.com/helios)
+3. [Francesco Strozzi](https://github.com/fstrozzi)
+4. [Artem Tarasov](https://github.com/lomereiter)
 
 NOTES
 
