@@ -95,11 +95,11 @@ efforts are not really matching the requirements of big data. Not so long ago,
 programmers got by writing specialised (small) tools in Perl, Python, R or C.
 Today, bioinformatics software engineering has to deal multi-core programming,
 with IO bottlenecks, RAM constraints, and demanding users. The overall
-challenge has become too large a job for the isolated PhD.D. student trying to
+challenge has become too large a job for the isolated student trying to
 write the next great all-inclusive software solution. We are increasingly
 depending on collaborative efforts involving researchers with a background in
 biology, statistics, software development and system administration. This is
-where the manifesto kicks in - by encouraging these Phi.D. students to come out
+where the manifesto kicks in - by encouraging these students to come out
 of isolation and write small tools that can be bolted together with other
 tools.
 
