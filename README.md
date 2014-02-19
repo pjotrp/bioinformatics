@@ -6,7 +6,7 @@ software and pipelines for current day biological and biomedical research.
 Large scale data acquisition in research has led to fundamental challenges in
 (1) scaling of calculations, (2) full data integration and (3) data interaction
 and visualisation. We think that, because of researchers reaching out to
-turn-key solutions, they are losing sight of the importance of building
+turn-key solutions, the research community is losing sight of the importance of building
 software on the shoulders of giants and providing solutions in a modular,
 flexible and open way.
 
@@ -17,7 +17,7 @@ that can be used in a modular and pluggable way to create efficient
 computational solutions where individual parts can be easily replaced.  The
 manifesto also counters current trends in software licensing which are not
 truly free and open source (FOSS). We think such a manifesto is necessary,
-even if history shows that software create with true FOSS licenses will
+even if history shows that software created with true FOSS licenses will
 ultimately prevail over less open licenses, including those licenses for
 academic use only.
 
@@ -30,7 +30,7 @@ wheel across research projects and, for example, the lack of reproducible
 scripted solutions in sequencing pipelines.
 
 *Small tools for bioinformatics* is about small collaborating tools and
-software solutions (from here on 'tools') in the Unix tradition.
+software solutions in the Unix tradition.
 
 *Small tools for bioinformatics* creates free and open source software, shares
 software solutions, and encourages transparency and reproducibility of results.
@@ -87,6 +87,9 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 3. [Francesco Strozzi](https://github.com/fstrozzi)
 4. [Artem Tarasov](https://github.com/lomereiter)
 
+Please clone, copy, BLOG this document. The original can be found at 
+https://github.com/pjotrp/bioinformatics
+
 NOTES
 
 At this point bioinformatics is thriving because of the sequencing bonanza.
@@ -99,7 +102,7 @@ challenge has become too large a job for the isolated student trying to
 write the next great all-inclusive software solution. We are increasingly
 depending on collaborative efforts involving researchers with a background in
 biology, statistics, software development and system administration. This is
-where the manifesto kicks in - by encouraging these students to come out
+where the manifesto kicks in - by encouraging researchers and students to come out
 of isolation and write small tools that can be bolted together with other
 tools.
 
@@ -111,11 +114,12 @@ centres around the world creating their own scripted and often fragile
 pipelines, thereby reinventing the wheel and ending with a semi-optimal and
 hard to maintain work flow solution. This  manifesto calls for a collaborative
 effort in changing the way we write software for pipelines and making
-such bioinformatics software pipelines simpler, flexible and more manageable.
+such bioinformatics software pipelines simpler, flexible,
+'antifragile' and more manageable.
 
 The manifesto accentuates command line tools with a clear input/output stream
 supporting (Unix) pipes, which make the components of a (sequencing) pipeline.
-But also for web based tools, and even GUI programs, most of above rules and
+Also for web based tools and GUI programs, most of above rules and
 recommendations are applicable. By making software solutions self contained and
 modular they become pluggable and can be easily replaced by a new generation of
 tools. Software is software. Software should be easy to change, replace and
