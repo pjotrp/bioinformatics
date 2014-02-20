@@ -86,6 +86,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 2. [Raoul Bonnal](https://github.com/helios)
 3. [Francesco Strozzi](https://github.com/fstrozzi)
 4. [Artem Tarasov](https://github.com/lomereiter)
+5. [Richard Smith-Unna](https://github.com/Blahah)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
