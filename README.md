@@ -52,7 +52,7 @@ bioinformatics*
 * All tools are free and open source software (FOSS) and come with a license
     approved by the Free Software Foundation (FSF).
 
-* Source code should be easy to read and understand for a competent software
+* Source code should be easy to read and understand by any competent software
     developer
   
 * Error conditions and exceptions should be descriptive and handled in 
@@ -88,6 +88,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 4. [Artem Tarasov](https://github.com/lomereiter)
 5. [Richard Smith-Unna](https://github.com/Blahah)
 6. [John Prince](https://github.com/jtprince)
+7. [Francisco Pina-Martins](https://github.com/StuntsPT)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
