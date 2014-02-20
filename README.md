@@ -17,7 +17,7 @@ that can be used in a modular and pluggable way to create efficient
 computational solutions where individual parts can be easily replaced.  The
 manifesto also counters current trends in software licensing which are not
 truly free and open source (FOSS). We think such a **MANIFESTO** is necessary,
-even if history shows that software created with true FOSS licenses will
+even though history suggests that software created with true FOSS licenses will
 ultimately prevail over less open licenses, including those licenses for
 academic use only.
 
@@ -86,6 +86,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 2. [Raoul Bonnal](https://github.com/helios)
 3. [Francesco Strozzi](https://github.com/fstrozzi)
 4. [Artem Tarasov](https://github.com/lomereiter)
+5. [John Prince](https://github.com/jtprince)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
