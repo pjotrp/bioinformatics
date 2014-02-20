@@ -96,8 +96,8 @@ At this point bioinformatics is thriving because of the sequencing bonanza.
 Arguably, bioinformatics is in a crisis because existing software engineering
 efforts are not really matching the requirements of big data. Not so long ago,
 programmers got by writing specialised (small) tools in Perl, Python, R or C.
-Today, bioinformatics software engineering has to deal multi-core programming,
-with IO bottlenecks, RAM constraints, and demanding users. The overall
+Today, bioinformatics software engineering has to deal with multi-core programming,
+IO bottlenecks, RAM constraints and demanding users. The overall
 challenge has become too large a job for the isolated student trying to
 write the next great all-inclusive software solution. We are increasingly
 depending on collaborative efforts involving researchers with a background in
