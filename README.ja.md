@@ -57,7 +57,7 @@
 3. [Francesco Strozzi](https://github.com/fstrozzi)
 4. [Artem Tarasov](https://github.com/lomereiter)
 
-この文書を、ぜひ (GitHub で) clone し、コピーし、ブログを書いて下さい。オリジナルの文書は https://github.com/pjotrp/bioinformatics にあります。
+この文書を、ぜひ (GitHub で) clone し、コピーし、ブログを書いて下さい。オリジナルの文書は https://github.com/pjotrp/bioinformatics にあります（日本語版は https://github.com/ktym/bioinformatics にあります）。
 
 注記
 
