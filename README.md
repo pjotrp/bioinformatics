@@ -89,6 +89,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 5. [Richard Smith-Unna](https://github.com/Blahah)
 6. [John Prince](https://github.com/jtprince)
 7. [Francisco Pina-Martins](https://github.com/StuntsPT)
+8. [Yannick Wurm](http://yannick.poulet.org)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
