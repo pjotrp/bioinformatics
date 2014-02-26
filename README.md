@@ -91,6 +91,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 7. [Francisco Pina-Martins](https://github.com/StuntsPT)
 8. [Yannick Wurm](http://yannick.poulet.org)
 9. [Karl Broman](http://www.biostat.wisc.edu/~kbroman)
+10. [Vince buffalo](http://vincebuffalo.com)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
