@@ -92,6 +92,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 8. [Yannick Wurm](http://yannick.poulet.org)
 9. [Karl Broman](http://www.biostat.wisc.edu/~kbroman)
 10. [Vince buffalo](http://vincebuffalo.com)
+11. [Daniel Standage](http://standage.github.io/)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
