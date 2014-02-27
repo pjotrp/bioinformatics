@@ -94,6 +94,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 10. [Vince buffalo](http://vincebuffalo.com)
 11. [Daniel Standage](http://standage.github.io/)
 12. [Felipe da Veiga Leprevost](http://www.leprevost.com.br)
+13. [Matt Shirley](https://github.com/mdshw5)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
