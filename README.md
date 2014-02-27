@@ -97,7 +97,9 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 13. [Matt Shirley](https://github.com/mdshw5)
 
 Please clone, copy, BLOG this document. The original can be found at 
-https://github.com/pjotrp/bioinformatics
+https://github.com/pjotrp/bioinformatics. Also check out the
+[wiki](https://github.com/pjotrp/bioinformatics/wiki) which contains
+background information and a road map.
 
 NOTES
 
