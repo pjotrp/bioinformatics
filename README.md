@@ -95,6 +95,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 11. [Daniel Standage](http://standage.github.io/)
 12. [Felipe da Veiga Leprevost](http://www.leprevost.com.br)
 13. [Matt Shirley](https://github.com/mdshw5)
+14. [Melissa Gymrek](https://github.com/mgymrek)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
