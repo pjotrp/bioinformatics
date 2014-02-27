@@ -93,6 +93,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 9. [Karl Broman](http://www.biostat.wisc.edu/~kbroman)
 10. [Vince buffalo](http://vincebuffalo.com)
 11. [Daniel Standage](http://standage.github.io/)
+12. [Felipe da Veiga Leprevost](http://www.leprevost.com.br)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics
