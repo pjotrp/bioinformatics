@@ -97,6 +97,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 13. [Matt Shirley](https://github.com/mdshw5)
 14. [Melissa Gymrek](https://github.com/mgymrek)
 15. [Kevin Murray](https://github.com/kdmurray91)
+16. [Joep de Ligt](https://github.com/jdeligt)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
