@@ -103,6 +103,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 19. [Surya Saha] (https://github.com/suryasaha)
 20. [Josh Herr](https://github.com/jrherr)
 21. [Dan MacLean](https://github.com/danmaclean)
+22. [Rob Davey](https://github.com/froggleston)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
