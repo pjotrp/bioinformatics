@@ -104,6 +104,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 20. [Josh Herr](https://github.com/jrherr)
 21. [Dan MacLean](https://github.com/danmaclean)
 22. [Rob Davey](https://github.com/froggleston)
+23. [Hugh French](https://github.com/hughfrench)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
