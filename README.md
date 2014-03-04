@@ -107,6 +107,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 23. [Hugh French](https://github.com/hughfrench)
 24. [Qingpeng Zhang](https://github.com/qingpeng)
 25. [Botond Sipos](https://sbotond.github.io)
+26. [George Githinji](https://github.com/georgeG)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
