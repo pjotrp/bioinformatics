@@ -100,11 +100,12 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 16. [Joep de Ligt](https://github.com/jdeligt)
 17. [Morris Swertz](https://github.com/mswertz)
 18. [C. Titus Brown](https://github.com/ctb/)
-19. [Surya Saha] (https://github.com/suryasaha)
+19. [Surya Saha](https://github.com/suryasaha)
 20. [Josh Herr](https://github.com/jrherr)
 21. [Dan MacLean](https://github.com/danmaclean)
 22. [Rob Davey](https://github.com/froggleston)
 23. [Hugh French](https://github.com/hughfrench)
+24. [Qingpeng Zhang](https://github.com/qingpeng)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
