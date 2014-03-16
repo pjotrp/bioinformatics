@@ -72,8 +72,8 @@ elegantly by any programming language that supports:
 
 and optionally 
 
-4. Futures/continuations
-5. Composition
+* Futures/continuations
+* Composition
 
 Examples of such languages are JavaScript, Coffeescript, Lisp, Python and Ruby. Here
 we give Ruby examples (note: add JS and Python later).
@@ -84,29 +84,29 @@ A command simply represents invocation of one or more (small) chained tools.
 Such a command is normally a method defined in a workflow module. An example
 for invocation of blastp would be
 
-  blastp
+    blastp
 
 Special invocation, when not controlled by parameters, could be descriptive
 names, such as
 
-  blastp_to_xml
+    blastp_to_xml
 
 Or better (to avoid name space pollution and to make routines pluggable) a
 specialization within the BlastP module
 
-  BlastP::to_xml
+    BlastP::to_xml
 
 With support of composition it could be
 
-  blastp.to_xml
+    blastp.to_xml
 
 Sometimes there are chained tools in one command, e.g. 'samtools view in.bam |grep chr11', which could be named
 
-  samtools_view_into_grep
+    samtools_view_into_grep
 
 or modular
 
-  Samtools::view_into_grep
+    Samtools::view_into_grep
 
 (Note for implementors: view_into_grep could actually be implemented by
 meta programming)
@@ -114,52 +114,52 @@ meta programming)
 With composition support which allows unlimited chaining of commands,
 it could be written as
 
-  samtools_view.grep
+    samtools_view.grep
 
 ## Passing parameters to commands
 
 Parameters are passed as descriptive blocks of key-value pairs. The key can be a 
 switch to the underlying tool
 
-  blastp(infile: 'file.fa')
+    blastp(infile: 'file.fa')
 
 Actually this is not that descriptive, as it hides a number of underlying
 assumptions.  What is the database, for example? A better description would be
 
-  blastp(infile: 'file.fa', db: 'nr')
+    blastp(infile: 'file.fa', db: 'nr')
 
 And to turn the output into XML
 
-  blastp(infile: 'file.fa', db: 'nr', '--out': 'xml')
+    blastp(infile: 'file.fa', db: 'nr', '--out': 'xml')
 
 If tools are chained an extra descriptive layer can be introduced. E.g.,
 
-  Samtools::view_into_grep({ 
-                           samtools: { infile: in.bam },
-                           grep:     'chr11' 
-                        })
+    Samtools::view_into_grep({ 
+                             samtools: { infile: in.bam },
+                             grep:     'chr11' 
+                          })
 
 Which translates to the shell invocation of
 
-  samtools view in.bam|grep chr11
+    samtools view in.bam|grep chr11
 
 Direct shell invocations are also possible, but use a wrapper to deal
 with error conditions and completion
 
-  shell('samtools view in.bam|grep chr11')
+    shell('samtools view in.bam|grep chr11')
 
 which writes to STDOUT, which is used for pipes (see below). If writing to
 another file, we could write directly
 
-  shell('samtools view in.bam|grep chr11 > test.out')
+    shell('samtools view in.bam|grep chr11 > test.out')
 
 But, if the method supported it, this is probably the best way to write it
 
-  Samtools::view_into_grep({ 
-                           samtools: { infile: in.bam },
-                           grep:     'chr11',
-                           outfile:  'test.out'
-                        })
+    Samtools::view_into_grep({ 
+                             samtools: { infile: in.bam },
+                             grep:     'chr11',
+                             outfile:  'test.out'
+                          })
 
 
 ## Non blocking commands
@@ -167,22 +167,22 @@ But, if the method supported it, this is probably the best way to write it
 In principle commands that do not have dependencies and have a callback are non
 blocking.  So, if you run
 
-  blastp_to_xml(-> {} )
-  samtools_view_into_grep(-> {})
+    blastp_to_xml(-> {} )
+    samtools_view_into_grep(-> {})
 
 they will run in parallel, or get submitted to PBS in sequence without 
 waiting for a result. These commands are non-blocking. The version without
 a callback is actually blocking:
 
-  blastp_to_xml
-  samtools_view_into_grep
+    blastp_to_xml
+    samtools_view_into_grep
 
 this is to make the transition from shell programming somewhat smooth.
 
 To run non-blocking commands only once write
 
-  once blastp_to_xml( -> {} )
-  once samtools_view_into_grep ( -> {} )
+    once blastp_to_xml( -> {} )
+    once samtools_view_into_grep ( -> {} )
 
 Once (or once-only) makes sure that if the inputs to the command have not
 changed, and the results have been calculated already, they are not calculated
@@ -192,8 +192,8 @@ to run again as well as the commands that depend on it.
 To submit jobs to a cluster we also have the submit method and the (optional)
 once method
 
-  submit once blastp_to_xml
-  submit once samtools_view_into_grep
+    submit once blastp_to_xml
+    submit once samtools_view_into_grep
 
 which do not require a callback. If you supply a callback it will be 
 called on completion of the submitted job.
@@ -203,46 +203,46 @@ called on completion of the submitted job.
 When commands are chained through callbacks, i.e., they have dependencies, they
 wait for results to continue. The syntax is
 
-  blastp_to_xml( -> samtools_view_into_grep )
+    blastp_to_xml( -> samtools_view_into_grep )
 
 Basically, the method samtools_view_into_grep is called on completion of 
 blastp_to_xml.
 
 To run commands only once write
 
-  once blastp_to_xml( -> once samtools_view_into_grep )
+    once blastp_to_xml( -> once samtools_view_into_grep )
 
 as was shown earlier.  To submit them to PBS write
 
-  submit once -> blastp_to_xml( -> submit once samtools_view_into_grep )
+    submit once -> blastp_to_xml( -> submit once samtools_view_into_grep )
 
 Which guarantees that samtools_view_into_grep is submitted after completion of blastp_to_xml.
 
 With the once function parameters are moved forward, so
 
-  once({ 
-             samtools: { infile: 'in.bam' },
-             grep:     'chr11' 
-       }, -> samtools_view_into_grep
-  )
+    once({ 
+               samtools: { infile: 'in.bam' },
+               grep:     'chr11' 
+         }, -> samtools_view_into_grep
+    )
 
 which can be simplified to
 
-  once({ 
-             samtools: 'in.bam',
-             grep:     'chr11' 
-       }, -> samtools_view_into_grep
-  )
+    once({ 
+               samtools: 'in.bam',
+               grep:     'chr11' 
+         }, -> samtools_view_into_grep
+    )
 
 and, possibly, even further to
 
-  once( samtools_view_into_grep, samtools: 'in.bam', grep: 'chr11' )
+    once( samtools_view_into_grep, samtools: 'in.bam', grep: 'chr11' )
 
 here we suppose that passing in a string, rather than a key-value combination,
 it is passed on literally to the command. Likewise an array will be passed
 on as literal strings, e.g.,
 
-   pfff ['in1.bam','in2.bam']
+     pfff ['in1.bam','in2.bam']
 
 would calculate a pfff checksum on each file.
 
@@ -250,7 +250,7 @@ would calculate a pfff checksum on each file.
 
 Map/reduce is the concatenation of dependencies with 'when', so
 
-  when( submit(blastp('in1.fa'), submit(blastp('in2.fa'))), -> collect )
+    when( submit(blastp('in1.fa'), submit(blastp('in2.fa'))), -> collect )
 
 where the collect function is called after completion of the other jobs.
 Arguably, naming-wise, we could replace 'when' with 'map' and the callback with
@@ -262,11 +262,11 @@ used for dependencies.
 When the number of jobs is not know in advance, use a list of functions to
 build up the dependencies. For example, to split a FASTA file for blasting
 
-  blasts = [] # Initialis list of functions
-  split_fasta.each { |fn|
-    blasts.push -> { submit(blastp(fn)) }
-  }
-  when (blasts, -> blastxmlparser)
+    blasts = [] # Initialis list of functions
+    split_fasta.each { |fn|
+      blasts.push -> { submit(blastp(fn)) }
+    }
+    when (blasts, -> blastxmlparser)
 
 ## Using a scratch disk
 
@@ -274,76 +274,76 @@ When submitting jobs to worker nodes it sometimes pays to copy files
 to a local disk. scratch copies a file or directory, ascertaining
 that there is enough space and returning a (temporary) filename, e.g.,
 
-  scratch(bam, -> { |localbam| do_something } )
+    scratch(bam, -> { |localbam| do_something } )
 
 The callback gets run with the localbam file and the copied file also gets
 removed after completion. If you want a more serial approach you can 
 do
 
-  localbam = scratch(bam)
-  do_something
+    localbam = scratch(bam)
+    do_something
 
 but then you have to remove the file yourself with a manual call to 
 
-  scratch_cleanup
+    scratch_cleanup
 
 ## Full example
 
 Currently a bash script using once-only and error_exit checking could be
 
-  normal=${normal%.*}_rmdup.bam
-  tumor=${tumor%.*}_rmdup.bam
+    normal=${normal%.*}_rmdup.bam
+    tumor=${tumor%.*}_rmdup.bam
 
-  for x in $normal $tumor ; do 
-    echo "==== Index with Samtools $x ..."
-    echo "$sambamba index $x"| $onceonly --pfff -d . -v
-    [ $? -ne 0 ] && exit 1
-    echo "==== Index fasta with samtools ..."
-    echo "$samtools faidx $refgenome"|$onceonly --pfff -d . -v
-    [ $? -ne 0 ] && exit 1
-    echo "==== Create samtools mpileup of $x"
-    # check -E option
-    # echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
-    echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
-    [ $? -ne 0 ] && exit 1
-  done
+    for x in $normal $tumor ; do 
+      echo "==== Index with Samtools $x ..."
+      echo "$sambamba index $x"| $onceonly --pfff -d . -v
+      [ $? -ne 0 ] && exit 1
+      echo "==== Index fasta with samtools ..."
+      echo "$samtools faidx $refgenome"|$onceonly --pfff -d . -v
+      [ $? -ne 0 ] && exit 1
+      echo "==== Create samtools mpileup of $x"
+      # check -E option
+      # echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
+      echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
+      [ $? -ne 0 ] && exit 1
+    done
 
 This can be simplyfied with our workflow, including abstraction of 
 echo statements, to
 
-  # inputs are normal, tumor, ref, bed and phred 
-  normal=File.basename(normal,'.bam')+'_rmdup.bam'
-  tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
-  [tumor,normal].each { |bam|
-    once(sambamba_index fn: bam)
-    once(sambamba_index_fasta fn: ref)
-    once(samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam)
-  }
+    # inputs are normal, tumor, ref, bed and phred 
+    normal=File.basename(normal,'.bam')+'_rmdup.bam'
+    tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
+    [tumor,normal].each { |bam|
+      once(sambamba_index fn: bam)
+      once(sambamba_index_fasta fn: ref)
+      once(samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam)
+    }
 
 Not only is this version more descriptive, but also it is much shorter and
 less error prone. As the indexing of the bam and fasta file do not depend
 on each other they can be run in parallel. The mpileup, however, depends on the
 other two, so we can create the parallel version with the 'when' function:
 
-  normal=File.basename(normal,'.bam')+'_rmdup.bam'
-  tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
-  [tumor,normal].each { |bam|
-    when( once(sambamba_index fn: bam),
-          once(sambamba_index_fasta fn: ref), 
-          -> once(samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam)
-  }
+    normal=File.basename(normal,'.bam')+'_rmdup.bam'
+    tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
+    [tumor,normal].each { |bam|
+      when( once(sambamba_index fn: bam),
+            once(sambamba_index_fasta fn: ref), 
+            -> once(samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam)
+    }
 
 Cool, or what? Actually for the final version we decide the 'once' is implicit, as
 this is the expected behaviour - we only want to run tools once. So, if 
 a tool is to be run every time we say 'force' instead:
 
-  normal=File.basename(normal,'.bam')+'_rmdup.bam'
-  tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
-  [tumor,normal].each { |bam|
-    when( force(sambamba_index fn: bam),
-          sambamba_index_fasta fn: ref, 
-          -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
-  }
+    normal=File.basename(normal,'.bam')+'_rmdup.bam'
+    tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
+    [tumor,normal].each { |bam|
+      when( force(sambamba_index fn: bam),
+            sambamba_index_fasta fn: ref, 
+            -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
+    }
 
 where the bam file is indexed on every run of the workflow. In this final
 version the mpileup executes after indexing both files, which run in
@@ -352,54 +352,54 @@ parallel.
 So, what happens when the next command has to run that depends on the previous.
 The shell version looks like:
 
-  echo "java -jar ~/opt/lib/VarScan.v2.3.6.jar processSomatic $normal-$tumor.varScan.output.snp"|$onceonly -v -d varscan2 --skip $normal-$tumor.varScan.output.snp
-  [ $? -ne 0 ] && exit 1
+    echo "java -jar ~/opt/lib/VarScan.v2.3.6.jar processSomatic $normal-$tumor.varScan.output.snp"|$onceonly -v -d varscan2 --skip $normal-$tumor.varScan.output.snp
+    [ $? -ne 0 ] && exit 1
 
 which we make into a single call
 
-  varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
+    varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
 
 The full dependency can be put in a callback
 
-  when( ->
-    [tumor,normal].each { |bam|
-      when( force(sambamba_index fn: bam),
-            sambamba_index_fasta fn: ref, 
-            -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
-    },
-    -> varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
-  )
+    when( ->
+      [tumor,normal].each { |bam|
+        when( force(sambamba_index fn: bam),
+              sambamba_index_fasta fn: ref, 
+              -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
+      },
+      -> varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
+    )
 
 This means workflow dependencies can be added in any combination in any depth.
 To make the workflow easier to understand the tree of dependencies can be
 flattened by calling into functions instead of blocks. Putting the indexing and
 pileup into a method we can write:
 
-  def mpileup(tumor,normal)
-    [tumor,normal].each { |bam|
-      when( force(sambamba_index fn: bam),
-            sambamba_index_fasta fn: ref, 
-            -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
-    }
-  end
-
-  when( mpileup(tumor,normal), 
-    -> varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
-  )
-
-but it may actually be nicer to create a 'future' which could read as
-
-  mpileup = future {
+    def mpileup(tumor,normal)
       [tumor,normal].each { |bam|
         when( force(sambamba_index fn: bam),
               sambamba_index_fasta fn: ref, 
               -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
       }
-    }
+    end
 
-  mpileup.calc {
-    varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
-  }
+    when( mpileup(tumor,normal), 
+      -> varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
+    )
+
+but it may actually be nicer to create a 'future' which could read as
+
+    mpileup = future {
+        [tumor,normal].each { |bam|
+          when( force(sambamba_index fn: bam),
+                sambamba_index_fasta fn: ref, 
+                -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
+        }
+      }
+
+    mpileup.calc {
+      varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
+    }
 
 so, that a deep tree actually turns into a flat list of linear commands, 
 but essentially it does the same thing. 
@@ -413,60 +413,60 @@ an example.
 
 Flattening it out further we could write
 
-  indexes = future { 
-      [tumor,normal].each { |bam|
-        sambamba_index fn: bam
-        sambamba_index_fasta fn: ref
+    indexes = future { 
+        [tumor,normal].each { |bam|
+          sambamba_index fn: bam
+          sambamba_index_fasta fn: ref
+        }
       }
-    }
 
-  mpileup = future {
-      indexes.calc {
-        samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
+    mpileup = future {
+        indexes.calc {
+          samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
+        }
       }
-    }
 
-  mpileup.calc {
-    varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
-  }
+    mpileup.calc {
+      varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
+    }
 
 Here tastes may differ. Using futures flattens the tree, which makes the
 workflow easier on the eye and more readable. But the 'future' workflow logic
 introduces another layer of indirection, which may not be the taste of
 everyone. A little syntactic sugar, however, can come a long way:
 
-  indexes = run { 
-      [tumor,normal].each { |bam|
-        sambamba_index fn: bam
-        sambamba_index_fasta fn: ref
+    indexes = run { 
+        [tumor,normal].each { |bam|
+          sambamba_index fn: bam
+          sambamba_index_fasta fn: ref
+        }
       }
-    }
 
-  mpileup = run {
-      after indexes do { samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam }
-    }
+    mpileup = run {
+        after indexes do { samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam }
+      }
 
-  after mpileup do { varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp' }
+    after mpileup do { varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp' }
 
 and it becomes more digestible for the human eye and mind. For sure it has
 become a lot easier to digest than the original shell script. Remember:
 
-  normal=${normal%.*}_rmdup.bam
-  tumor=${tumor%.*}_rmdup.bam
+    normal=${normal%.*}_rmdup.bam
+    tumor=${tumor%.*}_rmdup.bam
 
-  for x in $normal $tumor ; do 
-    echo "==== Index with Samtools $x ..."
-    echo "$sambamba index $x"| $onceonly --pfff -d . -v
+    for x in $normal $tumor ; do 
+      echo "==== Index with Samtools $x ..."
+      echo "$sambamba index $x"| $onceonly --pfff -d . -v
+      [ $? -ne 0 ] && exit 1
+      echo "==== Index fasta with samtools ..."
+      echo "$samtools faidx $refgenome"|$onceonly --pfff -d . -v
+      [ $? -ne 0 ] && exit 1
+      echo "==== Create samtools mpileup of $x"
+      echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
+      [ $? -ne 0 ] && exit 1
+    done
+    echo "java -jar ~/opt/lib/VarScan.v2.3.6.jar processSomatic $normal-$tumor.varScan.output.snp"|$onceonly -v -d varscan2 --skip $normal-$tumor.varScan.output.snp
     [ $? -ne 0 ] && exit 1
-    echo "==== Index fasta with samtools ..."
-    echo "$samtools faidx $refgenome"|$onceonly --pfff -d . -v
-    [ $? -ne 0 ] && exit 1
-    echo "==== Create samtools mpileup of $x"
-    echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
-    [ $? -ne 0 ] && exit 1
-  done
-  echo "java -jar ~/opt/lib/VarScan.v2.3.6.jar processSomatic $normal-$tumor.varScan.output.snp"|$onceonly -v -d varscan2 --skip $normal-$tumor.varScan.output.snp
-  [ $? -ne 0 ] && exit 1
 
 Not only is this shell program hard to digest, it also actually does less work
 for you!
