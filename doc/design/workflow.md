@@ -121,54 +121,71 @@ it could be written as
 Parameters are passed as descriptive blocks of key-value pairs. The key can be a 
 switch to the underlying tool
 
+```ruby
     blastp(infile: 'file.fa')
+```
 
 Actually this is not that descriptive, as it hides a number of underlying
 assumptions.  What is the database, for example? A better description would be
 
+```ruby
     blastp(infile: 'file.fa', db: 'nr')
+```
 
 And to turn the output into XML
 
+```ruby
     blastp(infile: 'file.fa', db: 'nr', '--out': 'xml')
+```
 
 If tools are chained an extra descriptive layer can be introduced. E.g.,
 
+```ruby
     Samtools::view_into_grep({ 
                              samtools: { infile: in.bam },
                              grep:     'chr11' 
                           })
+```
 
 Which translates to the shell invocation of
 
+```sh
     samtools view in.bam|grep chr11
+```
 
 Direct shell invocations are also possible, but use a wrapper to deal
 with error conditions and completion
 
+```ruby
     shell('samtools view in.bam|grep chr11')
+```
 
 which writes to STDOUT, which is used for pipes (see below). If writing to
 another file, we could write directly
 
+```ruby
     shell('samtools view in.bam|grep chr11 > test.out')
+```
 
 But, if the method supported it, this is probably the best way to write it
 
+```ruby
     Samtools::view_into_grep({ 
                              samtools: { infile: in.bam },
                              grep:     'chr11',
                              outfile:  'test.out'
                           })
-
+```
 
 ## Non blocking commands
 
 In principle commands that do not have dependencies and have a callback are non
 blocking.  So, if you run
 
+```ruby
     blastp_to_xml(-> {} )
     samtools_view_into_grep(-> {})
+```
 
 they will run in parallel, or get submitted to PBS in sequence without 
 waiting for a result. These commands are non-blocking. The version without
@@ -181,8 +198,10 @@ this is to make the transition from shell programming somewhat smooth.
 
 To run non-blocking commands only once write
 
+```ruby
     once blastp_to_xml( -> {} )
     once samtools_view_into_grep ( -> {} )
+```
 
 Once (or once-only) makes sure that if the inputs to the command have not
 changed, and the results have been calculated already, they are not calculated
@@ -203,46 +222,60 @@ called on completion of the submitted job.
 When commands are chained through callbacks, i.e., they have dependencies, they
 wait for results to continue. The syntax is
 
+```ruby
     blastp_to_xml( -> samtools_view_into_grep )
+```
 
 Basically, the method samtools_view_into_grep is called on completion of 
 blastp_to_xml.
 
 To run commands only once write
 
+```ruby
     once blastp_to_xml( -> once samtools_view_into_grep )
+```
 
 as was shown earlier.  To submit them to PBS write
 
+```ruby
     submit once -> blastp_to_xml( -> submit once samtools_view_into_grep )
+```
 
 Which guarantees that samtools_view_into_grep is submitted after completion of blastp_to_xml.
 
 With the once function parameters are moved forward, so
 
+```ruby
     once({ 
                samtools: { infile: 'in.bam' },
                grep:     'chr11' 
          }, -> samtools_view_into_grep
     )
+```
 
 which can be simplified to
 
+```ruby
     once({ 
                samtools: 'in.bam',
                grep:     'chr11' 
          }, -> samtools_view_into_grep
     )
+```
 
 and, possibly, even further to
 
+```ruby
     once( samtools_view_into_grep, samtools: 'in.bam', grep: 'chr11' )
+```
 
 here we suppose that passing in a string, rather than a key-value combination,
 it is passed on literally to the command. Likewise an array will be passed
 on as literal strings, e.g.,
 
+```ruby
      pfff ['in1.bam','in2.bam']
+```
 
 would calculate a pfff checksum on each file.
 
@@ -250,7 +283,9 @@ would calculate a pfff checksum on each file.
 
 Map/reduce is the concatenation of dependencies with 'when', so
 
+```ruby
     when( submit(blastp('in1.fa'), submit(blastp('in2.fa'))), -> collect )
+```
 
 where the collect function is called after completion of the other jobs.
 Arguably, naming-wise, we could replace 'when' with 'map' and the callback with
@@ -262,11 +297,13 @@ used for dependencies.
 When the number of jobs is not know in advance, use a list of functions to
 build up the dependencies. For example, to split a FASTA file for blasting
 
+```ruby
     blasts = [] # Initialis list of functions
     split_fasta.each { |fn|
       blasts.push -> { submit(blastp(fn)) }
     }
     when (blasts, -> blastxmlparser)
+```
 
 ## Using a scratch disk
 
@@ -274,7 +311,9 @@ When submitting jobs to worker nodes it sometimes pays to copy files
 to a local disk. scratch copies a file or directory, ascertaining
 that there is enough space and returning a (temporary) filename, e.g.,
 
+```ruby
     scratch(bam, -> { |localbam| do_something } )
+```
 
 The callback gets run with the localbam file and the copied file also gets
 removed after completion. If you want a more serial approach you can 
@@ -291,6 +330,7 @@ but then you have to remove the file yourself with a manual call to
 
 Currently a bash script using once-only and error_exit checking could be
 
+```sh
     normal=${normal%.*}_rmdup.bam
     tumor=${tumor%.*}_rmdup.bam
 
@@ -307,10 +347,12 @@ Currently a bash script using once-only and error_exit checking could be
       echo "$samtools mpileup -B -q $phred -f $refgenome -l $bed ../$x > $x.mpileup"|$onceonly --pfff -v -d varscan2 --skip $x.mpileup
       [ $? -ne 0 ] && exit 1
     done
+```
 
 This can be simplyfied with our workflow, including abstraction of 
 echo statements, to
 
+```ruby
     # inputs are normal, tumor, ref, bed and phred 
     normal=File.basename(normal,'.bam')+'_rmdup.bam'
     tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
@@ -319,12 +361,14 @@ echo statements, to
       once(sambamba_index_fasta fn: ref)
       once(samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam)
     }
+```
 
 Not only is this version more descriptive, but also it is much shorter and
 less error prone. As the indexing of the bam and fasta file do not depend
 on each other they can be run in parallel. The mpileup, however, depends on the
 other two, so we can create the parallel version with the 'when' function:
 
+```ruby
     normal=File.basename(normal,'.bam')+'_rmdup.bam'
     tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
     [tumor,normal].each { |bam|
@@ -332,11 +376,13 @@ other two, so we can create the parallel version with the 'when' function:
             once(sambamba_index_fasta fn: ref), 
             -> once(samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam)
     }
+```
 
 Cool, or what? Actually for the final version we decide the 'once' is implicit, as
 this is the expected behaviour - we only want to run tools once. So, if 
 a tool is to be run every time we say 'force' instead:
 
+```ruby
     normal=File.basename(normal,'.bam')+'_rmdup.bam'
     tumor=File.basename(tumor,'.bam')+'_rmdup.bam'
     [tumor,normal].each { |bam|
@@ -344,6 +390,7 @@ a tool is to be run every time we say 'force' instead:
             sambamba_index_fasta fn: ref, 
             -> samtools_mpileup quality: phred, ref: ref, bed: bed, fn: bam
     }
+```
 
 where the bam file is indexed on every run of the workflow. In this final
 version the mpileup executes after indexing both files, which run in
@@ -352,8 +399,10 @@ parallel.
 So, what happens when the next command has to run that depends on the previous.
 The shell version looks like:
 
+```sh
     echo "java -jar ~/opt/lib/VarScan.v2.3.6.jar processSomatic $normal-$tumor.varScan.output.snp"|$onceonly -v -d varscan2 --skip $normal-$tumor.varScan.output.snp
     [ $? -ne 0 ] && exit 1
+```
 
 which we make into a single call
 
@@ -361,6 +410,7 @@ which we make into a single call
 
 The full dependency can be put in a callback
 
+```ruby
     when( ->
       [tumor,normal].each { |bam|
         when( force(sambamba_index fn: bam),
@@ -369,12 +419,14 @@ The full dependency can be put in a callback
       },
       -> varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
     )
+```
 
 This means workflow dependencies can be added in any combination in any depth.
 To make the workflow easier to understand the tree of dependencies can be
 flattened by calling into functions instead of blocks. Putting the indexing and
 pileup into a method we can write:
 
+```ruby
     def mpileup(tumor,normal)
       [tumor,normal].each { |bam|
         when( force(sambamba_index fn: bam),
@@ -386,9 +438,11 @@ pileup into a method we can write:
     when( mpileup(tumor,normal), 
       -> varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
     )
+```
 
 but it may actually be nicer to create a 'future' which could read as
 
+```ruby
     mpileup = future {
         [tumor,normal].each { |bam|
           when( force(sambamba_index fn: bam),
@@ -400,6 +454,7 @@ but it may actually be nicer to create a 'future' which could read as
     mpileup.calc {
       varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
     }
+```
 
 so, that a deep tree actually turns into a flat list of linear commands, 
 but essentially it does the same thing. 
@@ -413,6 +468,7 @@ an example.
 
 Flattening it out further we could write
 
+```ruby
     indexes = future { 
         [tumor,normal].each { |bam|
           sambamba_index fn: bam
@@ -429,12 +485,14 @@ Flattening it out further we could write
     mpileup.calc {
       varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp'
     }
+```
 
 Here tastes may differ. Using futures flattens the tree, which makes the
 workflow easier on the eye and more readable. But the 'future' workflow logic
 introduces another layer of indirection, which may not be the taste of
 everyone. A little syntactic sugar, however, can come a long way:
 
+```ruby
     indexes = run { 
         [tumor,normal].each { |bam|
           sambamba_index fn: bam
@@ -447,10 +505,12 @@ everyone. A little syntactic sugar, however, can come a long way:
       }
 
     after mpileup do { varscan2_process_somatic normal: normal, tumor: tumor, output: normal+'-'+tumor+'.varScan.output.snp' }
+```
 
 and it becomes more digestible for the human eye and mind. For sure it has
 become a lot easier to digest than the original shell script. Remember:
 
+```sh
     normal=${normal%.*}_rmdup.bam
     tumor=${tumor%.*}_rmdup.bam
 
@@ -467,9 +527,9 @@ become a lot easier to digest than the original shell script. Remember:
     done
     echo "java -jar ~/opt/lib/VarScan.v2.3.6.jar processSomatic $normal-$tumor.varScan.output.snp"|$onceonly -v -d varscan2 --skip $normal-$tumor.varScan.output.snp
     [ $? -ne 0 ] && exit 1
+```
 
-Not only is this shell program hard to digest, it also actually does less work
-for you!
+Not only is this shell program hard to digest, it also actually does less work!
 
 ## Discussion
 
