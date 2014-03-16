@@ -26,7 +26,7 @@ up a workflow. First there are
 commands that do not depend on each other and can be run in parallel. Then there
 commands that do depend on each other, so one should start on completion
 of the other. Then there are 'map/reduce' style commands where a run gets
-split over multiple jobs and the results are gathered for futher processing.
+split over multiple jobs and the results are gathered for further processing.
 These three workflow 'modules' are the essential building blocks of any pipeline.
 
 Simple bash scripting, at this point pretty much the default in bioinformatics
@@ -37,7 +37,7 @@ of these actions and the easy handling of dependencies between tasks.
 Make has support for dependency handling, implicit error handling, and has some
 parallelisation support.  Make can be used to replace bash. The downside of
 make is that it represents a very simple language which makes frustratingly
-hard to write and read code. The worst aspect of make is that the depency logic
+hard to write and read code. The worst aspect of make is that the dependency logic
 (rules) are implicit and require the reader to disentangle logic every time.
 
 More recent attempts at merging a modern computer language with make style
@@ -92,7 +92,7 @@ names, such as
     blastp_to_xml
 
 Or better (to avoid name space pollution and to make routines pluggable) a
-specialization within the BlastP module
+specialisation within the BlastP module
 
     BlastP::to_xml
 
@@ -108,7 +108,7 @@ or modular
 
     Samtools::view_into_grep
 
-(Note for implementors: view_into_grep could actually be implemented by
+(Note for implementer: view_into_grep could actually be implemented by
 meta programming)
 
 With composition support which allows unlimited chaining of commands,
@@ -298,7 +298,7 @@ When the number of jobs is not know in advance, use a list of functions to
 build up the dependencies. For example, to split a FASTA file for blasting
 
 ```ruby
-    blasts = [] # Initialis list of functions
+    blasts = [] # Initialise list of functions
     split_fasta.each { |fn|
       blasts.push -> { submit(blastp(fn)) }
     }
@@ -349,7 +349,7 @@ Currently a bash script using once-only and error_exit checking could be
     done
 ```
 
-This can be simplyfied with our workflow, including abstraction of 
+This can be simplified with our workflow, including abstraction of 
 echo statements, to
 
 ```ruby
@@ -460,9 +460,9 @@ so, that a deep tree actually turns into a flat list of linear commands,
 but essentially it does the same thing. 
 
 A future is a kind of 'lazy' ahead-evaluation in another thread. Unlike a
-'lazy' call, where a value gets realized at actual invocation, a future starts
+'lazy' call, where a value gets realised at actual invocation, a future starts
 processing as soon as the future is defined, i.e., the thread starts. When
-realizing the future value the process blocks until the calculation completes. See
+realising the future value the process blocks until the calculation completes. See
 http://tx.pignata.com/2012/11/concurrency-patterns-in-ruby-futures.html for
 an example.
 
@@ -550,7 +550,7 @@ has to be made somewhere in the workflow, not all steps have to be rerun. This
 makes it a great system for developing and tuning new pipelines.
 
 The critical contribution of the workflow engine, in comparison to shell
-scripting, is the handling of depencies between jobs through callbacks. This 
+scripting, is the handling of dependencies between jobs through callbacks. This 
 is a model that is extensively used in, for example, nodejs and D3. All commands
 are non-blocking, and if a command has to wait for another it will simply be
 added as a callback on completion. This allows for complicated task dependency
