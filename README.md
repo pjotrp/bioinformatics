@@ -112,6 +112,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 28. [Bruno Vieira](http://bmpvieira.com)
 29. [Bruno P. Kinoshita](https://github.com/kinow)
 30. [Ward Vandewege](https://github.com/cure)
+31. [Nathan Weeks](https://github.com/nathanweeks)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
