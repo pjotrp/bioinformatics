@@ -111,6 +111,10 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 26. [George Githinji](https://github.com/georgeG)
 27. [Ryan Taylor](https://github.com/ryanmt)
 28. [Bruno Vieira](http://bmpvieira.com)
+29. [Bruno P. Kinoshita](https://github.com/kinow)
+30. [Ward Vandewege](https://github.com/cure)
+31. [Nathan Weeks](https://github.com/nathanweeks)
+32. [Chris Fields](https://github.com/cjfields)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
