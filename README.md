@@ -18,7 +18,8 @@ computational solutions where individual parts can be easily replaced.  The
 manifesto also counters current trends in software licensing which are not
 truly free and open source (FOSS). We think such a **MANIFESTO** is necessary,
 even though history suggests that software created with true FOSS licenses will
-ultimately prevail over less open licenses, including those licenses for
+ultimately prevail over less open licenses, including those licenses
+that are for
 academic use only.
 
 *Small tools for bioinformatics* consists of researchers, software developers,
