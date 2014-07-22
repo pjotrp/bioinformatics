@@ -117,6 +117,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 32. [Chris Fields](https://github.com/cjfields)
 33. [Ilya Sytchev](https://github.com/hackdna)
 34. [Eric Talevich](https://github.com/etal)
+35. [Daniel Swan](https://github.com/dswan)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
