@@ -118,6 +118,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 33. [Ilya Sytchev](https://github.com/hackdna)
 34. [Eric Talevich](https://github.com/etal)
 35. [Daniel Swan](https://github.com/dswan)
+36. [Wibowo Arindrarto](https://github.com/bow)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
