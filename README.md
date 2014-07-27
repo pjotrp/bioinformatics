@@ -119,6 +119,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 34. [Eric Talevich](https://github.com/etal)
 35. [Daniel Swan](https://github.com/dswan)
 36. [Wibowo Arindrarto](https://github.com/bow)
+37. [Hilmar Lapp](http://lappland.io)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
