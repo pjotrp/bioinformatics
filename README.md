@@ -70,16 +70,16 @@ bioinformatics*
 * Software installation and deployment dependencies are handled through 
     external package management systems
 
-The following are recommendations 
+The following are recommendations:
 
-* Use github or similar for hosting source code
+* Use distributed revision control, and site promoting social coding, for hosting source code, such as Github.
 
-* Use travis or similar for automatic testing
+* Use a [Continuous Integration](http://en.wikipedia.org/wiki/Continuous_integration) tool for automatic testing, such as [Travis](http://travis-ci.org).
 
-* Provide a package definition for the GNU package system (GUIX)
+* Provide a package definition for the [GNU package system](http://www.gnu.org/software/guix/) (GUIX).
 
 * All tools that match the criteria of the **MANIFESTO** will be part of
-    standard bioinformatics pipelines across the world
+    standard bioinformatics pipelines across the world.
 
 This **MANIFESTO** *Small tools for bioinformatics* is signed by 
 
