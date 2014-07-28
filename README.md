@@ -120,6 +120,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 35. [Daniel Swan](https://github.com/dswan)
 36. [Wibowo Arindrarto](https://github.com/bow)
 37. [Hilmar Lapp](http://lappland.io)
+38. [Peter Cock](https://github.com/peterjc/)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
