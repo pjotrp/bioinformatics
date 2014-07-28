@@ -142,13 +142,13 @@ where the **MANIFESTO** kicks in - by encouraging researchers and students to co
 of isolation and write small tools that can be bolted together with other
 tools.
 
-Also, there is a lack of good work flow management solutions in bioinformatics
+Also, there is a lack of good workflow management solutions in bioinformatics
 pipelines, a gap that sits somewhere between generic cluster management
-software, such as Sun Grid Engine, on the one end, and user oriented work flow
+software, such as Sun Grid Engine, on the one end, and user oriented workflow
 solutions, such as Galaxy, on the other.  This gap has led to sequencing
 centres around the world creating their own scripted and often fragile
 pipelines, thereby reinventing the wheel and ending with a semi-optimal and
-hard to maintain work flow solution. This  **MANIFESTO** calls for a collaborative
+hard to maintain workflow solution. This  **MANIFESTO** calls for a collaborative
 effort in changing the way we write software for pipelines and making
 such bioinformatics software pipelines simpler, flexible,
 'antifragile' and more manageable.
