@@ -123,6 +123,8 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 38. [Peter Cock](https://github.com/peterjc/)
 39. [Joachim Baran](https://github.com/joejimbo/)
 40. [Konrad Förstner](https://github.com/konrad/)
+41. [Paolo Di Tommaso](https://github.com/nextflow-io)
+
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
