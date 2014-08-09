@@ -122,6 +122,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 37. [Hilmar Lapp](http://lappland.io)
 38. [Peter Cock](https://github.com/peterjc/)
 39. [Joachim Baran](https://github.com/joejimbo/)
+40. [Konrad Förstner](https://github.com/konrad/)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
