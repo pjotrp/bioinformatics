@@ -168,12 +168,12 @@ improve. The **MANIFESTO** champions that philosophy.
 
 To cite the **MANIFESTO** use the following BibTex or equivalent
 
-```JSON
-@MISC{MANIFESTO,
-  author        = {Pjotr Prins},
-  title         = {Small tools MANIFESTO for Bioinformatics},
-  month         = {Feb.},
-  year          = {2014},
-  howpublished  = {https://github.com/pjotrp/bioinformatics/blob/master/README.md}
-}
+```ruby
+    @MISC{MANIFESTO,
+      author        = {Pjotr Prins},
+      title         = {Small tools MANIFESTO for Bioinformatics},
+      month         = {Feb.},
+      year          = {2014},
+      howpublished  = {https://github.com/pjotrp/bioinformatics/blob/master/README.md}
+    }
 ```
