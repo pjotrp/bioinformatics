@@ -166,3 +166,14 @@ modular they become pluggable and can be easily replaced by a new generation of
 tools. Software is software. Software should be easy to change, replace and
 improve. The **MANIFESTO** champions that philosophy.
 
+To cite the **MANIFESTO** use the following BibTex or equivalent
+
+```JSON
+@MISC{MANIFESTO,
+  author        = {Pjotr Prins},
+  title         = {Small tools MANIFESTO for Bioinformatics},
+  month         = {Feb.},
+  year          = {2014},
+  howpublished  = {https://github.com/pjotrp/bioinformatics/blob/master/README.md}
+}
+```
