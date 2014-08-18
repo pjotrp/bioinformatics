@@ -131,7 +131,7 @@ https://github.com/pjotrp/bioinformatics. Also check out the
 [wiki](https://github.com/pjotrp/bioinformatics/wiki) which contains
 background information and a road map.
 
-NOTES
+## NOTES
 
 At this point bioinformatics is thriving because of the sequencing bonanza.
 Arguably, bioinformatics is in a crisis because existing software engineering
@@ -166,6 +166,8 @@ modular they become pluggable and can be easily replaced by a new generation of
 tools. Software is software. Software should be easy to change, replace and
 improve. The **MANIFESTO** champions that philosophy.
 
+## Cite
+
 To cite the **MANIFESTO** use the following BibTex or equivalent
 
 ```ruby
@@ -177,3 +179,11 @@ To cite the **MANIFESTO** use the following BibTex or equivalent
       howpublished  = {https://github.com/pjotrp/bioinformatics/blob/master/README.md}
     }
 ```
+
+## License
+
+The content of the site (i.e., blog posts and page content) is
+licensed under a [Creative Commons Attribution License](http://creativecommons.org/licenses/by/4.0/), i.e., you may use it,
+but you must give attribution.
+
+
