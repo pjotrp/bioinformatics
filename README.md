@@ -178,7 +178,8 @@ To cite the **MANIFESTO** use the following BibTex or equivalent
       title         = {Small tools MANIFESTO for Bioinformatics},
       month         = {Feb.},
       year          = {2014},
-      doi           = {10.5281/zenodo.11321},
+      doi           = "{10.5281/zenodo.11321}",
+      url           = "{http://dx.doi.org/10.5281/zenodo.11321}",
       howpublished  = {https://github.com/pjotrp/bioinformatics/blob/master/README.md}
     }
 ```
