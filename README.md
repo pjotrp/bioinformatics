@@ -124,6 +124,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 39. [Joachim Baran](https://github.com/joejimbo/)
 40. [Konrad Förstner](https://github.com/konrad/)
 41. [Paolo Di Tommaso](https://github.com/nextflow-io)
+42. [Wim Spee](https://github.com/WimS83)
 
 
 Please clone, copy, BLOG this document. The original can be found at 
