@@ -125,8 +125,8 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 40. [Konrad Förstner](https://github.com/konrad/)
 41. [Paolo Di Tommaso](https://github.com/nextflow-io)
 42. [Wim Spee](https://github.com/WimS83)
-42. [Wai Yi Leung](http://geno.mics.io/)
-
+43. [Wai Yi Leung](http://geno.mics.io/)
+44. [Norman Warthmann](https://github.com/warthmann)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
