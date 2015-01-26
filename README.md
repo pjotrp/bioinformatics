@@ -128,6 +128,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 43. [Wai Yi Leung](http://geno.mics.io/)
 44. [Norman Warthmann](https://github.com/warthmann)
 45. [Daisie Huang](https://github.com/daisieh)
+46. [Saulius Gražulis](https://github.com/sauliusg)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
