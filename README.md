@@ -130,6 +130,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 45. [Daisie Huang](https://github.com/daisieh)
 46. [Saulius Gražulis](https://github.com/sauliusg)
 47. [Laurent Gatto](https://github.com/lgatto)
+48. [Mateusz Kuzak](https://github.com/mkuzak)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
