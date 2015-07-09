@@ -72,7 +72,7 @@ bioinformatics*
 
 The following are recommendations:
 
-* Use distributed revision control, and site promoting social coding, for hosting source code, such as Github.
+* Use distributed revision control &mdash; and sites promoting social coding &mdash; for hosting source code, such as Github.
 
 * Use a [Continuous Integration](http://en.wikipedia.org/wiki/Continuous_integration) tool for automatic testing, such as [Travis](http://travis-ci.org).
 
