@@ -72,7 +72,7 @@ bioinformatics*
 
 The following are recommendations:
 
-* Use distributed revision control, and site promoting social coding, for hosting source code, such as Github.
+* Use distributed revision control &mdash; and sites promoting social coding &mdash; for hosting source code, such as Github.
 
 * Use a [Continuous Integration](http://en.wikipedia.org/wiki/Continuous_integration) tool for automatic testing, such as [Travis](http://travis-ci.org).
 
@@ -131,6 +131,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 46. [Saulius Gražulis](https://github.com/sauliusg)
 47. [Laurent Gatto](https://github.com/lgatto)
 48. [Mateusz Kuzak](https://github.com/mkuzak)
+49. [Daniel Mietchen](https://github.com/Daniel-Mietchen)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
