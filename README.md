@@ -134,6 +134,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 49. [Daniel Mietchen](https://github.com/Daniel-Mietchen)
 50. [Ivars Silamiķelis] (https://github.com/ivars-silamikelis)
 51. [Scott Lohr] (https://github.com/slohr)
+52. [Marco van Zwetselaar] (http://io.zwets.it/)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics. Also check out the
