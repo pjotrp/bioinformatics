@@ -180,7 +180,7 @@ improve. The **MANIFESTO** champions that philosophy.
 
 ## Cite
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11321.svg)](http://dx.doi.org/10.5281/zenodo.11321)
+[![DOI](img/zenodo.11321.svg)](http://dx.doi.org/10.5281/zenodo.11321)
 
 To cite the **MANIFESTO** use the following BibTex or equivalent
 
