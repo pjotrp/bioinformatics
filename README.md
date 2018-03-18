@@ -132,13 +132,15 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 47. [Laurent Gatto](https://github.com/lgatto)
 48. [Mateusz Kuzak](https://github.com/mkuzak)
 49. [Daniel Mietchen](https://github.com/Daniel-Mietchen)
-50. [Ivars Silamiķelis] (https://github.com/ivars-silamikelis)
-51. [Scott Lohr] (https://github.com/slohr)
-52. [Marco van Zwetselaar] (http://io.zwets.it/)
+50. [Ivars Silamiķelis](https://github.com/ivars-silamikelis)
+51. [Scott Lohr](https://github.com/slohr)
+52. [Marco van Zwetselaar](http://io.zwets.it/)
+53. [Abram Connelly](https://github.com/abramconnelly)
 
 Please clone, copy, BLOG this document. The original can be found at 
-https://github.com/pjotrp/bioinformatics. Also check out the
-[wiki](https://github.com/pjotrp/bioinformatics/wiki) which contains
+https://github.com/pjotrp/bioinformatics.
+If you'd like to be added to this list, fork this repository and submit a pull request with your name added to the list.
+Also check out the [wiki](https://github.com/pjotrp/bioinformatics/wiki) which contains
 background information and a road map.
 
 ## NOTES
@@ -178,7 +180,7 @@ improve. The **MANIFESTO** champions that philosophy.
 
 ## Cite
 
-[![DOI](https://zenodo.org/badge/5591/pjotrp/bioinformatics.png)](http://dx.doi.org/10.5281/zenodo.11321)
+[![DOI](img/zenodo.11321.svg)](http://dx.doi.org/10.5281/zenodo.11321)
 
 To cite the **MANIFESTO** use the following BibTex or equivalent
 
