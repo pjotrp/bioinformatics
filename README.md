@@ -136,6 +136,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 51. [Scott Lohr](https://github.com/slohr)
 52. [Marco van Zwetselaar](http://io.zwets.it/)
 53. [Abram Connelly](https://github.com/abramconnelly)
+54. [Benjamin D. Lee](https://github.com/Benjamin-Lee)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics.
