@@ -139,6 +139,7 @@ This **MANIFESTO** *Small tools for bioinformatics* is signed by
 54. [Benjamin D. Lee](https://github.com/Benjamin-Lee)
 55. [Tommaso Leonardi](https://github.com/tleonardi)
 56. [Alexander Kanitz](https://github.com/uniqueg)
+57. [Ian Korf](https://github.com/iankorf)
 
 Please clone, copy, BLOG this document. The original can be found at 
 https://github.com/pjotrp/bioinformatics.
